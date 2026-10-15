@@ -1,4 +1,5 @@
 # Odkryj Gliwice
+demo gry: https://youtu.be/cd-82Ko-2k8
 
 Edukacyjna gra 2D w stylu retro Pixel-Art stworzona w Phaser.js i Vite na hackathon.
 

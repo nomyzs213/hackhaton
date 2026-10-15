@@ -1,0 +1,121 @@
+SEKWENCJA DZIALAN - GRA "ODKRYJ GLIWICE" (Phaser.js, JavaScript)
+
+0. PRE-FLIGHT
+- Sprawdz node i npm (Node >= 18).
+- git status (brak commitow; .idea w .gitignore).
+- Uzgodnij nazwe pakietu i base URL dla Vite (GitHub Pages).
+- Kryterium: srodowisko gotowe.
+
+1. INICJALIZACJA PROJEKTU
+- npm init -y
+- npm i phaser
+- npm i -D vite
+- Skrypty w package.json: dev, build, preview.
+- Weryfikacja: npm run dev uruchamia pusta strone bez bledow.
+
+2. STRUKTURA KATALOGOW I WEJSCIE
+- Utworzyc drzewo: src/scenes, entities, objects, data, utils; public/assets.
+- index.html z <div id="app"></div> i module src/main.js.
+- vite.config.js z base i portem.
+- Weryfikacja: Vite serwuje strone bez 404.
+
+3. KONFIGURACJA PHASERA
+- src/main.js: nowa gra Phaser (AUTO, 960x540, scale FIT, arcade physics, lista scen).
+- Weryfikacja: czarne ploto bez bledow.
+
+4. BOOTSCENE
+- Ladowanie assetow (placeholderowe generowane kodem) + pasek postepu.
+- Po complete -> MenuScene.
+- Weryfikacja: ekran ladowania znika, pojawia sie menu.
+
+5. MENUSCENE
+- Tytul, przycisk Start, najlepszy czas z localStorage, instrukcja.
+- Weryfikacja: klik Start przechodzi do GameScene.
+
+6. PODSTAWA GAMESCENE
+- Tlo, siatka drog, granice swiata, ruch strzalki/WASD (prostokat gracza).
+- Weryfikacja: ruch bez bledow fizyki.
+
+7. PLAYER ENTITY
+- Klasa Player: animacje idle/walk, wejscie strzalki+WASD, kolizja z granicami.
+- Weryfikacja: animacje plynnie, brak driftingu.
+
+8. MAPA I KOLIZJE
+- Warstwa budynkow z kolizjami (statyczna grupa/tilemap), kamera follow.
+- Weryfikacja: nie mozna przejsc przez budynki.
+
+9. LANDMARKI I INTERAKCJA
+- src/data/landmarks.js (8 miejsc, pozycje, quiz, ciekawostka).
+- Landmark.js: strefa overlap, podpowiedz "Nacisnij E", emit do UIScene.
+- Weryfikacja: stojac przy landmarku i wciskajac E otwiera sie quiz.
+
+10. UISCENE HUD + QUIZ
+- Uruchamiana rownolegle; HUD odznaki/czas/zycia; overlay quizu 4 przyciski.
+- Obsluga poprawnej/blednej odpowiedzi -> event do GameScene.
+- Weryfikacja: pelny przeplyw pytanie -> odpowiedz -> zamkniecie.
+
+11. LOGIKA ODZNAK
+- Zbieranie odznak, SFX, animacja, fakt; po 8 -> EndScene.
+- Bledna odpowiedz: -10s czasu, mozna ponowic.
+- Weryfikacja: odznaki sie wypelniaja, wygrana wyzwala EndScene.
+
+12. PRZESZKODY: AUTA
+- Grupa aut na pasach, ruch obustronny, respawn.
+- Kolizja auto-gracz -> utrata zycia, i-frames, efekt.
+- Przegrana przy 0 zyc.
+- Weryfikacja: jedna kolizja = jedno zycie, migotanie, brak wielokrotnego naliczania.
+
+13. TIMER I WARUNKI KONCA
+- Licznik 3 min, pauza zatrzymuje timer i fizyke.
+- Czas <= 0 -> EndScene (przegrana).
+- Weryfikacja: czas tyka tylko w aktywnej grze.
+
+14. ENDSCENE + ZAPIS WYNIKU
+- Ekran wyniku, lista odznak, Restart/Menu.
+- storage.js: najlepszy czas w localStorage.
+- Weryfikacja: po wygranej najlepszy czas sie aktualizuje.
+
+15. AUDIO
+- SFX: klik, sukces, kolizja, opcjonalna muzyka.
+- Przycisk mute + zapis preferencji.
+- Weryfikacja: dźwięki dzialaja, mute zapamiętuje.
+
+16. POLISH I DOSTEPNOSC
+- Partikle przy odznace, ekran ladowania z progresem.
+- Kontrast, duże przyciski, focus ring, escape zamyka overlaye.
+- Weryfikacja: brak migotania, czytelne UI na 1366x768 i mobile.
+
+17. STEROWANIE MOBILNE
+- Virtualny joystick + przycisk interakcji (touch), responsywnosc.
+- Komunikat o orientacji poziomej.
+- Weryfikacja: grywalne na telefonie (DevTools device mode).
+
+18. ZAMIANA PLACEHOLDEROW NA ASSETY
+- Zebrac CC0/CC-BY assety, atłas, aktualizacja kluczy.
+- assets/CREDITS.md z licencjami.
+- Weryfikacja: brak tekstur placeholder, credits kompletne.
+
+19. TESTY I WALIDACJA
+- Checklist manualny: pelne przejscie, bledne odpowiedzi, kolizje, pauza, restart, mute, mobile.
+- Walidacja danych (unikalne id, poprawny answer).
+- npm run build + npm run preview.
+- Kryterium: brak bledow konsoli, wygrana/przegrana dziala.
+
+20. DEPLOY + README
+- Build, ustawienie base dla GitHub Pages, publikacja (Actions/gh-pages).
+- README: opis, uruchomienie, sterowanie, credits, deploy, TODO.
+- Commit, opcjonalnie tag v0.1.0.
+- Weryfikacja: publiczny link dziala, assety sie ładują.
+
+ZALEZNOSCI
+- 4-5 wymagaja 2-3.
+- 7-8 wymagaja 6.
+- 9-11 wymagaja 7-8.
+- 12-13 wymagaja 9-10.
+- 17-18 mozna rownolegle po 14.
+- 20 dopiero po 19.
+
+ITERACJE
+- npm run dev -> http://localhost:5173 (lub port z configu)
+- konsola przegladarki bez bledow, brak 404 assetow
+- npm run build przechodzi bez ostrzezen

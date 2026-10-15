@@ -1,0 +1,149 @@
+SPECYFIKACJA ASSETÓW PIXEL-ART (x16) DLA GRY "ODKRYJ GLIWICE"
+Przeznaczenie: plik dla innego modelu AI do wygenerowania grafik w stylu pixel art.
+
+============================================================
+1. STYL I WYMAGANIA TECHNICZNE (OBOWIAZKOWE)
+------------------------------------------------------------
+- Styl: pixel art, czysta siatka pikseli, BRAK antyaliasingu, BRAK gradientów, BRAK rozmycia, ostre krawędzie.
+- Skala bazowa: 16 x 16 pikseli (1 kafel = 16px). Wszystkie wymiary WYŁĄCZNIE wielokrotnościami 16.
+- Format plików: PNG z przezroczystym tłem (alpha). Tło przezroczyste (checkerboard), bez białej/niebieskiej ramki.
+- Brak cieni "miękki" (drop shadow blurred). Dopuszczalne tylko twarde, 1px cienie w kolorze.
+- Paleta ograniczona: maks. 24-32 kolory w całej paczce, spójna dla wszystkich assetów.
+- Kierunek światła: jeden kierunek (góra-lewo). Cienie po prawo/dół.
+- Outline: czarny lub bardzo ciemny, 1px, spójny.
+- Nazewnictwo plików: małe litery, myślnik, np. player-32x32.png.
+- Wyjście: paczka PNG w katalogu `public/assets/images/`.
+
+============================================================
+2. PALETA (ZAPROponowana, spójna)
+------------------------------------------------------------
+- Trawa: #2E5E2E, #3D7A3D, #1F451F
+- Droga/niest: #444455, #5A5A6B, #2B2B35
+- Cegła/terakota: #8B3A2B, #A84A35, #6B2A1E
+- Piaskowiec (zamek): #C9B89A, #A89878, #7A6A50
+- Szkoła/Politechnika: #2E4A77, #4060A0, #1B2F55
+- Żółty landmark: #FFC107, #D9A400
+- Zieleń/parker: #4CAF50, #2E7D32
+- Auto czerwień: #E53935, #B71C1C
+- Szarości budynków: #556688, #6B7A99, #3A465C
+- UI żółty: #FFD700
+- Czarny outline: #1A1A1A
+
+============================================================
+3. LISTA ASSETÓW DO WYGENEROWANIA
+------------------------------------------------------------
+
+A) GRACZ (przeglądający miasto)
+- player-idle-32x32.png (32x32) - postać w idle, widok top-down 3/4? (top-down czysty; brak perspektywy).
+- player-walk-a/b-32x32.png (opcjonalnie animacja 2 klatki)
+Zastosowanie: sprite gracza, kierunek w dół; obracanie opcjonalnie.
+
+B) TŁO / KAFELKI (16x16 lub 32x32)
+- tile-grass-32x32.png
+- tile-road-h-32x32.png (pozioma droga)
+- tile-road-v-32x32.png (pionowa droga)
+- tile-road-cross-32x32.png
+- tile-sidewalk-32x32.png
+- tile-water-32x32.png (Kłodnica, futurystycznie)
+
+C) BUDYNKI / PRZESZKODY
+- building-tenement-yellow.png (80x80 - kamienica secesyjna z balkonami)
+- building-tenement-red.png (80x80 - śląska kamienica z czerwonej cegły z kawiarnią)
+- building-tenement-blue.png (80x80 - klasyczna kamienica z gzymsami)
+- building-shop.png (80x64 - sklep z markizą)
+- building-house.png (64x64 - dom ze spadzistym dachem)
+- building-office.png (80x96 - nowoczesny biurowiec)
+- tree-park.png (40x56 - dąb parkowy)
+- lamp-post.png (16x32 - latarnia miejska)
+
+D) LANDMARKI (GŁÓWNE ZABYTKI I MIEJSCA GLIWIC)
+1. landmark-radio-tower (64x160 - Radiostacja Gliwicka: drewniana wieża 111m, 3 pomosty, stacja nadawcza)
+2. landmark-dworzec-pkp (144x80 - Dworzec PKP w Gliwicach: hala ze szkła i zegar)
+3. landmark-palm-house (144x96 - Palmiarnia Miejska: pawilony z kopułami i stuletnimi feniksami)
+4. landmark-all-saints (80x144 - Kościół Wszystkich Świętych: 63m gotycka wieża z przyporami)
+5. landmark-market-square (128x112 - Rynek i Ratusz z Fontanną Neptuna z 1794 r.)
+6. landmark-piast-castle (128x96 - Zamek Piastowski: gotycka baszta z XIV w. i mury obronne)
+7. landmark-willa-caro (112x80 - Willa Caro: neorenesansowa willa fabrykanta Oscara Caro)
+8. landmark-ruiny-teatru (112x80 - Ruiny Teatru Victoria przy al. Przyjaźni)
+9. landmark-silesian-tech (144x96 - Politechnika Śląska: gmach z wieżyczką i arkadami)
+10. landmark-theatre (128x96 - Teatr Miejski im. W. Korfantego: kolumnada i fronton)
+11. landmark-arena-gliwice (144x80 - PreZero Arena Gliwice: futurystyczna hala z neonem)
+12. landmark-piast-stadium (144x96 - Stadion Piasta Gliwice: niebiesko-czerwone trybuny, jupitery, murawa)
+13. landmark-diabelki (32x32 - Gliwickie Diabełki: fontanna z trzema tańczącymi faunami)
+
+E) PRZESZKODY / AUTA
+- car-red-48x24.png (auto czerwone, top-down uproszczone)
+- car-blue-48x24.png
+- car-yellow-48x24.png
+
+F) UI / IKONY
+- badge-24x24.png (złota odznaka)
+- icon-heart-16x16.png (życie)
+- icon-clock-16x16.png (czas)
+- button-start-... (opcjonalnie, UI generowane kodem)
+
+G) PRZECIWNICY (opcjonalnie)
+- pedestrian-32x32.png (przechodzień)
+
+============================================================
+4. STRUKTURA PLIKÓW (OCZEKIWANA)
+------------------------------------------------------------
+public/assets/images/
+  player-idle-32x32.png
+  tile-grass-32x32.png
+  tile-road-h-32x32.png
+  tile-road-v-32x32.png
+  tile-road-cross-32x32.png
+  tile-sidewalk-32x32.png
+  tile-water-32x32.png
+  building-generic-64x64.png
+  building-house-64x64.png
+  landmark-*.png
+  car-*.png
+  badge-24x24.png
+  icon-heart-16x16.png
+  icon-clock-16x16.png
+
+============================================================
+5. ZASADY SPÓJNOŚCI (AI MA TRZYMAĆ)
+------------------------------------------------------------
+- Ten sam outline 1px dla WSZYSTKICH obiektów.
+- Ten sam kąt światła (góra-lewo) dla WSZYSTKICH.
+- Żadnego renderowania 3D/pseudo-3D; top-down (z góry, lekkie 3/4 tylko dla landmarków jeśli czytelne, ale spójne).
+- Tła przezroczyste, brak dodatkowej przestrzeni (trim/pixel-perfect bounds).
+- Brak tekstu na grafikach (tekst w UI).
+- Nie używać prawdziwych logo marek (Politechnika Śląska, Piast) bez zgody; stylizowane, neutralne.
+- Skala: 16px grid; jeśli obiekt wymaga 5px, wypełnij do 16.
+
+============================================================
+6. PROMPT SZABLON (DO UŻYCIA PRZEZ MODEL GRAFICZNY)
+------------------------------------------------------------
+"Pixel art sprite, [NAZWA_OBIEKTU], top-down view, [WYMIARY]px, strict 16x16 pixel grid, limited retro palette, black 1px outline, no anti-aliasing, no blur, transparent background, hard shadows, consistent lighting from top-left, clean silhouette, game-ready asset, --ar 1:1"
+
+Przykład dla Radiostacji:
+"Pixel art sprite, wooden radio tower Gliwice, 32x32px, top-down oblique view, brown wooden tower with sharp spire, 16px pixel grid, retro palette, black 1px outline, no anti-aliasing, transparent background, game-ready asset"
+
+============================================================
+7. WERYFIKACJA (CHECKLIST)
+------------------------------------------------------------
+- Każdy PNG ma wymiary wielokrotność 16.
+- Brak antyaliasingu (zoom 800% piksel po pikselu).
+- Tło przezroczyste (alpha).
+- Spójna paleta i outline.
+- Brak tekstów i marek.
+- Pliki nazwane zgodnie ze schematem.
+
+============================================================
+8. INTEGRACJA Z KODEM (GDY ASSETY BĘDĄ GOTOWE)
+------------------------------------------------------------
+- Umieścić PNG w `public/assets/images/`.
+- Dodać ładowanie w `BootScene.makePlaceholders` (zamienić canvas-generate na this.load.image).
+- Zaktualizować klucze tekstur w:
+  * Player (klucz 'player')
+  * Landmark 'landmark' (lub per landmark klucz)
+  * Auto 'car'
+  * Budynki 'building'
+  * UI 'badge', 'icon-*'
+- Zaktualizować CREDITS.md z autorem i licencją każdego assetu.
+============================================================
+KONIEC SPECYFIKACJI

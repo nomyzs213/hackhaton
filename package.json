@@ -1,0 +1,34 @@
+{
+  "name": "hackhaton",
+  "version": "1.0.0",
+  "description": "Odkryj Gliwice - edukacyjna gra 2D w stylu pixel art",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "generate:assets": "node scripts/generate-assets.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nomyzs213/hackhaton.git"
+  },
+  "keywords": [
+    "phaser",
+    "game",
+    "gliwice",
+    "pixel-art",
+    "educational"
+  ],
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/nomyzs213/hackhaton/issues"
+  },
+  "homepage": "https://github.com/nomyzs213/hackhaton#readme",
+  "dependencies": {
+    "phaser": "^4.2.1"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4"
+  }
+}
